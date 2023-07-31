@@ -1,0 +1,16 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+button {
+    margin-top: 10%;
+    margin-right: 2.1rem ;
+    width: auto;
+    border-style: none;
+    color: $primary-color;
+    font-size: calc($font-size-table + 10px);
+
+    &:hover {
+        color: $secondary-color;
+        font-weight: bold;
+    }
+}

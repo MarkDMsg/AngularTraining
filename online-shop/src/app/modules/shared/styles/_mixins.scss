@@ -1,0 +1,27 @@
+@import "../styles/variables";
+
+@mixin basic-title {
+    margin: 0;
+    font-size: 60px;
+    color: $secondary-color;
+    padding: 0;
+}
+
+@mixin basic-button($button-color) {
+    width: $button-width;
+    min-width: 8rem;
+    min-height: 3rem;
+    height: $button-height;
+    border-radius: $button-border-radius;
+    font-size: $basic-font-size;
+    color: $background-color;
+    border: none;
+    background-color: $button-color;
+
+    &:hover {
+        background-color: $background-color;
+        border: solid $button-color;
+        color: $button-color;
+        font-weight: bold;
+    }
+}

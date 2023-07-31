@@ -1,0 +1,25 @@
+<div class="products-page-wrapper">
+  <div class="product-list-header">
+    <h1>Products</h1>
+    <div class="product-list-header__buttons">
+      <button>CART</button>
+      <button>ADD</button>
+    </div>
+  </div>
+  <div class="product-list-wrapper">
+    <div class="product-list">
+      <tr class="product-list__header">
+        <th>Category</th>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th id="detail-button-header"></th>
+      </tr>
+      <tr class="product-list__single-product" *ngFor="let product of products">
+        <td>{{ product.category }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }}</td>
+        <button>&#8618;</button>
+      </tr>
+    </div>
+  </div>
+</div>
