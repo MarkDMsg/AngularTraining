@@ -3,7 +3,7 @@
         <h1>{{product.name}}</h1>
         <div class="product-details-header__buttons">
             <button>Edit</button>
-            <button>Delete</button>
+            <button (click)="deleteProduct()" [routerLink]="['']">Delete</button>
         </div>
     </div>
     <div class="product-details-data">

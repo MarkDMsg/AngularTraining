@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter} from '@angular/core';
+import { Product } from '../../../types/products.types';
 
 @Component({
   standalone: true,
@@ -7,9 +8,10 @@ import { Component, Input, Output, EventEmitter} from '@angular/core';
   styleUrls: ['./icon-button.component.scss']
 })
 export class IconButtonComponent {
-  @Input() iconType !: String;
-  @Output() buttonEvent: EventEmitter<any> = new EventEmitter<any>();
-  clickEvent(){
-    this.buttonEvent.emit(null);
+  @Input() iconType !: string;
+  @Output() deleteFromCartEvent: EventEmitter<Product> = new EventEmitter<Product>();
+  @Input() product!:Product;
+  deleteFromCart(){
+    this.deleteFromCartEvent.emit(this.product);
   }
 }

@@ -13,11 +13,6 @@
 
     button {
         margin: 0 1vw 0;
-
-        &:first-of-type {
-            @include basic-button($secondary-color);
-        }
-
         @include basic-button($primary-color);
     }
 
@@ -53,6 +48,23 @@
             }
 
             button {
+
+
+                &:first-of-type {
+                    font-size: 17px;
+                    font-weight: bold;
+                    margin-left: -5%;
+                    margin-right: 2.5%;
+                    background-image: url(../../../modules/shared/icons/Shopping_Cart.svg);
+                    background-repeat: no-repeat;
+                    padding: 10px;
+                    border-radius: 8px;
+                    width: 100px;
+                    height: 50px;
+                    margin-top: 1vh;
+
+                }
+
                 width: $detail-button-width;
                 border-style: none;
                 color: $primary-color;

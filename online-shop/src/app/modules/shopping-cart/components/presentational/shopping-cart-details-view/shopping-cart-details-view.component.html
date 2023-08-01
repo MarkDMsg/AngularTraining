@@ -1,7 +1,11 @@
 <div class="shopping-cart-wrapper">
     <div class="shopping-cart-header">
         <h1>Shopping Cart</h1>
-        <button>CHECKOUT</button>
+        <div class="shopping-cart-header__buttons">
+            <button [routerLink]="['/']">BACK</button>
+            <button (click)="checkoutProducts()">CHECKOUT</button>
+        </div>
+
     </div>
     <div class="product-list-wrapper">
         <div class="product-list">
@@ -17,7 +21,8 @@
                 <td>{{ product.name }}</td>
                 <td>{{ product.price }}</td>
                 <td>{{ product.quantity}}</td>
-                <app-icon-button [iconType]="'delete-item'" ></app-icon-button>
+                <app-icon-button [product]="product"
+                    (deleteFromCartEvent)="deleteFromCartPresentational(product)"></app-icon-button>
             </tr>
         </div>
     </div>

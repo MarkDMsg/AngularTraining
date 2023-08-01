@@ -1,9 +1,9 @@
+<script src="https://kit.fontawesome.com/6072ad6ebb.js" crossorigin="anonymous"></script>
 <div class="products-page-wrapper">
   <div class="product-list-header">
     <h1>Products</h1>
     <div class="product-list-header__buttons">
-      <button>CART</button>
-      <button>ADD</button>
+      <button [routerLink]="['/shopping-cart/']">CART</button>
     </div>
   </div>
   <div class="product-list-wrapper">
@@ -18,7 +18,8 @@
         <td>{{ product.category }}</td>
         <td>{{ product.name }}</td>
         <td>{{ product.price }}</td>
-        <button>&#8618;</button>
+        <button (click)="addToCart(product)"></button>
+        <button [routerLink]="['/detail/', product.id]">&#8618;</button>
       </tr>
     </div>
   </div>

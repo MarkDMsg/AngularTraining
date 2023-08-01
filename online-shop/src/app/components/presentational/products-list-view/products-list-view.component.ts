@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from 'src/app/modules/shared/types/products.types';
 
 @Component({
@@ -6,6 +6,14 @@ import { Product } from 'src/app/modules/shared/types/products.types';
   templateUrl: './products-list-view.component.html',
   styleUrls: ['./products-list-view.component.scss']
 })
-export class ProductsListViewComponent{
+export class ProductsListViewComponent {
   @Input() products!: Product[];
+  @Output() addToCartEvent = new EventEmitter<Product>();
+
+  constructor() { }
+
+  addToCart(product: Product) {
+    this.addToCartEvent.emit(product);
+  }
+
 }

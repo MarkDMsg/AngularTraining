@@ -1,1 +1,1 @@
-<app-shopping-cart-details-view [cartProducts]="cartProducts" ></app-shopping-cart-details-view>
+<app-shopping-cart-details-view (productInCartEvent)="deleteFromCart($event)" (checkoutEvent)="checkoutProducts()"  [cartProducts]="cartProducts" ></app-shopping-cart-details-view>

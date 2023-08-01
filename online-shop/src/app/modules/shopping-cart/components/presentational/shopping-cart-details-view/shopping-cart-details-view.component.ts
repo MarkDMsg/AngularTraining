@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ProductWithQuantity } from 'src/app/modules/shared/types/product-with-quantity.type';
 import { Product } from 'src/app/modules/shared/types/products.types';
 
 @Component({
@@ -7,9 +8,15 @@ import { Product } from 'src/app/modules/shared/types/products.types';
   styleUrls: ['./shopping-cart-details-view.component.scss']
 })
 export class ShoppingCartDetailsViewComponent implements OnInit{
-    @Input() cartProducts!: Product[];
-   
+    @Input() cartProducts!: ProductWithQuantity[];
+    @Output() productInCartEvent = new EventEmitter<Product>();
+    @Output() checkoutEvent = new EventEmitter<any>();
     ngOnInit(): void {
-      this.cartProducts.forEach(product=>(product.quantity=0));
+    }
+    deleteFromCartPresentational(product:Product):void{
+      this.productInCartEvent.emit(product);
+    }
+    checkoutProducts():void{
+      this.checkoutEvent.emit(null);
     }
 }

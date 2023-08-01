@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from 'src/app/modules/shared/types/products.types';
 
 @Component({
@@ -7,5 +7,12 @@ import { Product } from 'src/app/modules/shared/types/products.types';
   styleUrls: ['./products-details-view.component.scss']
 })
 export class ProductsDetailsViewComponent {
-  @Input() product!: Product;
+  @Input() product !: Product;
+
+  @Output() deleteProductEvent = new EventEmitter<string>();
+
+  deleteProduct(): void {
+    this.deleteProductEvent.emit(this.product.id);
+  }
+
 }
