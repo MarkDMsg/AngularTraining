@@ -1,0 +1,87 @@
+@import "../../../modules/shared/styles/variables";
+@import "../../../modules/shared/styles/mixins";
+
+.product-list-header {
+    display: flex;
+    justify-content: space-between;
+    margin: 5% 10% 5%;
+    align-items: center;
+
+    h1 {
+        @include basic-title;
+    }
+
+    button {
+        margin: 0 1vw 0;
+        @include basic-button($primary-color);
+        &:first-of-type{
+            @include basic-button($secondary-color);
+        }
+    }
+
+}
+
+.product-list-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .product-list {
+        width: 80%;
+        min-width: 600px;
+        border: $table-border-style;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        font-size: $font-size-table;
+        color: $secondary-color;
+
+        &__header,
+        &__single-product {
+            display: flex;
+            justify-content: space-between;
+            border: $table-border-style;
+
+            td,
+            th {
+                width: 100%;
+                padding: $space-between-table-data;
+                text-align: start;
+            }
+
+            button {
+
+
+                &:first-of-type {
+                    font-size: 17px;
+                    font-weight: bold;
+                    margin-left: -5%;
+                    margin-right: 2.5%;
+                    background-image: url(../../../modules/shared/icons/Shopping_Cart.svg);
+                    background-repeat: no-repeat;
+                    padding: 10px;
+                    border-radius: 8px;
+                    width: 100px;
+                    height: 50px;
+                    margin-top: 1vh;
+
+                }
+
+                width: $detail-button-width;
+                border-style: none;
+                color: $primary-color;
+                font-size: calc($font-size-table + 10px);
+
+                &:hover {
+                    color: $secondary-color;
+                    font-weight: bold;
+                }
+                background-color: white;
+            }
+
+            #detail-button-header {
+                width: calc($detail-button-width - 100px);
+            }
+        }
+    }
+}
