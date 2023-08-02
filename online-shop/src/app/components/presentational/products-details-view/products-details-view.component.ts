@@ -12,7 +12,9 @@ export class ProductsDetailsViewComponent {
   @Output() deleteProductEvent = new EventEmitter<string>();
 
   deleteProduct(): void {
-    this.deleteProductEvent.emit(this.product.id);
+    if(this.product){
+      this.deleteProductEvent.emit(this.product.id);
+    }
   }
 
 }

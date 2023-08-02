@@ -10,6 +10,13 @@ import { ProductsDetailsViewComponent } from './components/presentational/produc
 import { ProductsListViewComponent } from './components/presentational/products-list-view/products-list-view.component';
 import { IconButtonComponent } from './modules/shared/components/presentational/icon-button/icon-button.component';
 import { ShoppingCartModule } from './modules/shopping-cart/shopping-cart.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductsFormComponent } from './components/containers/products-form/products-form.component';
+import { ProductsFormViewComponent } from './components/presentational/products-form-view/products-form-view.component';
+import { ProductsEditComponent } from './components/containers/products-edit/products-edit.component';
+import { ProductsEditViewComponent } from './components/presentational/products-edit-view/products-edit-view.component';
+import { ProductsAddViewComponent } from './components/presentational/products-add-view/products-add-view.component';
+import { ProductsAddComponent } from './components/containers/products-add/products-add.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,13 +24,21 @@ import { ShoppingCartModule } from './modules/shopping-cart/shopping-cart.module
     ProductsDetailsComponent,
     ProductsListViewComponent,
     ProductsDetailsViewComponent,
+    ProductsFormViewComponent,
+    ProductsFormComponent,
+    ProductsEditComponent,
+    ProductsEditViewComponent,
+    ProductsAddViewComponent,
+    ProductsAddComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ShoppingCartModule,
     IconButtonComponent,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

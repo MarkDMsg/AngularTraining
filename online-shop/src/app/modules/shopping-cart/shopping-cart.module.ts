@@ -4,6 +4,7 @@ import { ShoppingCartDetailsComponent } from './components/containers/shopping-c
 import { ShoppingCartDetailsViewComponent } from './components/presentational/shopping-cart-details-view/shopping-cart-details-view.component';
 import { IconButtonComponent } from '../shared/components/presentational/icon-button/icon-button.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -15,7 +16,9 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     IconButtonComponent,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [ShoppingCartDetailsComponent,
   ShoppingCartDetailsViewComponent]

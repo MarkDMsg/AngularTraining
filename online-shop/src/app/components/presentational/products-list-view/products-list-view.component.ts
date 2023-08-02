@@ -10,8 +10,6 @@ export class ProductsListViewComponent {
   @Input() products!: Product[];
   @Output() addToCartEvent = new EventEmitter<Product>();
 
-  constructor() { }
-
   addToCart(product: Product) {
     this.addToCartEvent.emit(product);
   }

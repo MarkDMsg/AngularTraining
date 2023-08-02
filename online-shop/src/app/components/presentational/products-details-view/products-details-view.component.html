@@ -2,7 +2,7 @@
     <div class="product-details-header">
         <h1>{{product.name}}</h1>
         <div class="product-details-header__buttons">
-            <button>Edit</button>
+            <button [routerLink]="['/edit/',product.id]">Edit</button>
             <button (click)="deleteProduct()" [routerLink]="['']">Delete</button>
         </div>
     </div>

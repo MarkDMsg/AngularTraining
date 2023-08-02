@@ -9,7 +9,6 @@ import { ProductService } from 'src/app/services/products.service';
 })
 export class ProductsListComponent implements OnInit {
   products: Product[] = [];
-  productToAdd !: Product;
   constructor(private service: ProductService) { }
 
   ngOnInit(): void {
@@ -21,7 +20,6 @@ export class ProductsListComponent implements OnInit {
   }
 
   addProductToCart(productToAdd: Product): void {
-    this.productToAdd = productToAdd;
     this.service.addProductToCart(productToAdd);
   }
 

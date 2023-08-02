@@ -10,7 +10,7 @@ import { Product } from 'src/app/modules/shared/types/products.types';
 export class ShoppingCartDetailsViewComponent implements OnInit{
     @Input() cartProducts!: ProductWithQuantity[];
     @Output() productInCartEvent = new EventEmitter<Product>();
-    @Output() checkoutEvent = new EventEmitter<any>();
+    @Output() checkoutEvent = new EventEmitter();
     ngOnInit(): void {
     }
     deleteFromCartPresentational(product:Product):void{

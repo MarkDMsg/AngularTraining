@@ -25,8 +25,17 @@ export class ProductService {
         this.http.delete(this.ROOT_URL + '/products/' + id).subscribe();
     }
 
+    addProduct(product:Product):void{
+        this.http.post<Product>(this.ROOT_URL + '/products', product).subscribe();
+    }
+
     addProductToCart(product: Product) {
         this.shoppingCartService.addProductToCart(product);
     }
+
+    editProduct(product:Product):void{
+        this.http.put<Product>(this.ROOT_URL + '/products/' + product.id, product).subscribe();
+    }
+
 
 }
