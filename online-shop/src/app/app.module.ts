@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductsDetailsComponent } from './components/containers/products-details/products-details.component';
@@ -17,6 +17,9 @@ import { ProductsEditComponent } from './components/containers/products-edit/pro
 import { ProductsEditViewComponent } from './components/presentational/products-edit-view/products-edit-view.component';
 import { ProductsAddViewComponent } from './components/presentational/products-add-view/products-add-view.component';
 import { ProductsAddComponent } from './components/containers/products-add/products-add.component';
+import { LoginViewComponent } from './components/presentational/login-view/login-view.component';
+import { JwtInterceptor } from './interceptors/auth.interceptor';
+import { ErrorInterceptor } from './interceptors/error.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +32,8 @@ import { ProductsAddComponent } from './components/containers/products-add/produ
     ProductsEditComponent,
     ProductsEditViewComponent,
     ProductsAddViewComponent,
-    ProductsAddComponent
+    ProductsAddComponent,
+    LoginViewComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +44,8 @@ import { ProductsAddComponent } from './components/containers/products-add/produ
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

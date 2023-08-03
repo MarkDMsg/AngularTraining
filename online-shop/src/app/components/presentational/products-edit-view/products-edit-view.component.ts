@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Product } from 'src/app/modules/shared/types/products.types';
+import { Product } from 'src/app/modules/shared/types/product.types';
 
 @Component({
   selector: 'app-products-edit-view',

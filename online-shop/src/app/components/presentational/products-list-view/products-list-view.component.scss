@@ -1,24 +1,37 @@
 @import "../../../modules/shared/styles/variables";
 @import "../../../modules/shared/styles/mixins";
 
+.log-bar{
+    display: flex;
+    margin: -1vh 0 -1vh -1vw;
+    background-color: $secondary-color;
+    button{
+        @include basic-button($secondary-color);
+        margin-left: auto;
+        margin-right:calc(10% + 1vw);
+        
+    }
+}
+
 .product-list-header {
     display: flex;
     justify-content: space-between;
     margin: 5% 10% 5%;
     align-items: center;
-
+    
     h1 {
         @include basic-title;
     }
 
     button {
         margin: 0 1vw 0;
-        @include basic-button($primary-color);
+        @include basic-button($secondary-color);
         &:first-of-type{
-            @include basic-button($secondary-color);
+            @include basic-button($primary-color);
         }
     }
 
+   
 }
 
 .product-list-wrapper {

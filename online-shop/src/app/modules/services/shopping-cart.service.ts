@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.development';
 import { Order } from '../shared/types/order.types';
 import { ProductWithQuantity } from '../shared/types/product-with-quantity.type';
-import { Product } from '../shared/types/products.types';
+import { Product } from '../shared/types/product.types';
 @Injectable({ providedIn: 'root' })
 export class ShoppingCartService {
     productsInCart: ProductWithQuantity[] = [];

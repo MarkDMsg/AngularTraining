@@ -4,7 +4,7 @@ import { ShoppingCartService } from 'src/app/modules/services/shopping-cart.serv
 import { Order } from 'src/app/modules/shared/types/order.types';
 import { ProductFromOrder } from 'src/app/modules/shared/types/product-from-order.types';
 import { ProductWithQuantity } from 'src/app/modules/shared/types/product-with-quantity.type';
-import { Product } from 'src/app/modules/shared/types/products.types';
+import { Product } from 'src/app/modules/shared/types/product.types';
 import { } from '../../../../../../environments/environment';
 @Component({
   selector: 'app-shopping-cart-details',

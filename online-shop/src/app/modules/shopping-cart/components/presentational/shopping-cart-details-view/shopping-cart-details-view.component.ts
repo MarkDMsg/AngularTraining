@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ProductWithQuantity } from 'src/app/modules/shared/types/product-with-quantity.type';
-import { Product } from 'src/app/modules/shared/types/products.types';
+import { Product } from 'src/app/modules/shared/types/product.types';
 
 @Component({
   selector: 'app-shopping-cart-details-view',

@@ -1,4 +1,4 @@
-import { Product } from "./products.types";
+import { Product } from "./product.types";
 
 export interface ProductWithQuantity extends Product {
     quantity: number;
