@@ -6,8 +6,7 @@ import { ProductService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-products-edit',
-  templateUrl: './products-edit.component.html',
-  styleUrls: ['./products-edit.component.scss']
+  templateUrl: './products-edit.component.html'
 })
 export class ProductsEditComponent {
   product$ !: Observable<Product>;

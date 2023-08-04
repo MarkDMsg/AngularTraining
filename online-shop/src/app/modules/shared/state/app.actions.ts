@@ -55,8 +55,6 @@ export const loadProductsRequestAction = createAction(
     props<{ items: Product[] }>()
   );
    
-  ////////
-   
   export const saveRequestAction = createAction(
     ActionTypes.SAVE_REQUEST,
     props<{ item: Product }>()
@@ -71,8 +69,6 @@ export const loadProductsRequestAction = createAction(
     ActionTypes.SAVE_SUCCESS,
     props<{ item: Product }>()
   );
-   
-  ///
 
   export const updateRequestAction = createAction(
     ActionTypes.UPDATE_REQUEST,
@@ -89,8 +85,6 @@ export const loadProductsRequestAction = createAction(
     props<{ item: Product }>()
   );
      
-  ////
-   
   export const deleteRequestAction = createAction(
     ActionTypes.DELETE_REQUEST,
     props<{ id: string }>()

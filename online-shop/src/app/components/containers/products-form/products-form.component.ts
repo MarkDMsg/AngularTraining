@@ -6,8 +6,7 @@ import { ProductService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-products-form',
-  templateUrl: './products-form.component.html',
-  styleUrls: ['./products-form.component.scss']
+  templateUrl: './products-form.component.html'
 })
 export class ProductsFormComponent implements OnChanges{
 
