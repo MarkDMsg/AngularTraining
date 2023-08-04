@@ -13,8 +13,6 @@ export class LoginViewComponent implements OnInit {
   loginForm!: FormGroup;
   username!: string;
   password!: string;
-  submitted = false;
-  returnUrl!: string;
 
   constructor(private formBuilder: FormBuilder,
     private router: Router,
@@ -27,7 +25,6 @@ export class LoginViewComponent implements OnInit {
     
   }
   onLogin(): void {
-    this.submitted = true;
     this.authenticationService.login(this.loginForm.controls['username'].value, this.loginForm.controls['password'].value)
       .pipe(first())
       .subscribe(

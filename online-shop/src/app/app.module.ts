@@ -20,6 +20,12 @@ import { ProductsAddComponent } from './components/containers/products-add/produ
 import { LoginViewComponent } from './components/presentational/login-view/login-view.component';
 import { JwtInterceptor } from './interceptors/auth.interceptor';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
+import { CommonModule } from '@angular/common';
+import { StoreModule } from '@ngrx/store';
+import { productFeatureName, productsReducer } from './modules/shared/state/app.reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { ProductEffects } from './modules/shared/state/app.effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,10 +48,17 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
     IconButtonComponent,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule,
+    StoreModule.forRoot({[productFeatureName]:productsReducer}),
+    EffectsModule.forRoot([ProductEffects]),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+    })
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },],
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    ProductEffects],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

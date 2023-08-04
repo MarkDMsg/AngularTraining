@@ -1,1 +1,1 @@
-<app-products-list-view (logoutEvent)="logout()" (addToCartEvent)="addProductToCart($event)"  [products]="products"></app-products-list-view>
+<app-products-list-view (logoutEvent)="logout()" (addToCartEvent)="addProductToCart($event)"  [products]="(products$ | async)!"></app-products-list-view>

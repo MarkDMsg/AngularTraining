@@ -2,8 +2,8 @@
     <div class="product-details-header">
         <h1>{{product.name}}</h1>
         <div class="product-details-header__buttons">
-            <button *ngIf="isAdmin==='yes'" [routerLink]="['/edit/',product.id]">Edit</button>
-            <button *ngIf="isAdmin==='yes'" (click)="deleteProduct()" [routerLink]="['']">Delete</button>
+            <button *ngIf="isAdmin" [routerLink]="['/edit/',product.id]">Edit</button>
+            <button *ngIf="isAdmin" (click)="deleteProduct()" [routerLink]="['']">Delete</button>
         </div>
     </div>
     <div class="product-details-data">

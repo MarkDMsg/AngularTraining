@@ -9,10 +9,15 @@ import { Product } from 'src/app/modules/shared/types/product.types';
 export class ProductsDetailsViewComponent {
   @Input() product !: Product;
   @Output() deleteProductEvent = new EventEmitter<string>();
-  isAdmin!: string | null;
+  isAdmin!: boolean | null;
 
   ngOnInit() {
-    this.isAdmin = localStorage.getItem('isAdmin');
+    if(localStorage.getItem('isAdmin')==='yes'){
+      this.isAdmin=true;
+    }
+    else{
+      this.isAdmin=false;
+    }
   }
   deleteProduct(): void {
     if(this.product){
