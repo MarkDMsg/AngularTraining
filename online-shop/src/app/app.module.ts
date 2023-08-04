@@ -26,6 +26,8 @@ import { productFeatureName, productsReducer } from './modules/shared/state/prod
 import { EffectsModule } from '@ngrx/effects';
 import { ProductEffects } from './modules/shared/state/product/product.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { UserEffects } from './modules/shared/state/user/user.effects';
+import { userFeatureName, userReducer } from './modules/shared/state/user/user.reducers';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,8 +52,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    StoreModule.forRoot({[productFeatureName]:productsReducer}),
-    EffectsModule.forRoot([ProductEffects]),
+    StoreModule.forRoot({[productFeatureName]:productsReducer,[userFeatureName]:userReducer}),
+    EffectsModule.forRoot([ProductEffects,UserEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
     })

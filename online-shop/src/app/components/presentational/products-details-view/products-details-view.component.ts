@@ -12,15 +12,10 @@ export class ProductsDetailsViewComponent {
   isAdmin!: boolean | null;
 
   ngOnInit() {
-    if(localStorage.getItem('isAdmin')==='yes'){
-      this.isAdmin=true;
-    }
-    else{
-      this.isAdmin=false;
-    }
+    this.isAdmin = JSON.parse(localStorage.getItem('isAdmin')!);
   }
   deleteProduct(): void {
-    if(this.product){
+    if (this.product) {
       this.deleteProductEvent.emit(this.product.id);
     }
   }

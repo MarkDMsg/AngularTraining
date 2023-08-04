@@ -7,7 +7,7 @@ import { Product } from 'src/app/modules/shared/types/product.types';
   styleUrls: ['./products-list-view.component.scss']
 })
 export class ProductsListViewComponent implements OnInit {
-  @Input() products!: Product[] | undefined;
+  @Input() products!: Product[] | null;
   @Output() addToCartEvent = new EventEmitter<Product>();
   @Output() logoutEvent = new EventEmitter();
   isAdmin!: string | null;

@@ -1,9 +1,24 @@
-import { ProductService } from "src/app/services/products.service";
-import { Actions, ofType, createEffect } from '@ngrx/effects';
 import { Injectable } from "@angular/core";
-import { switchMap, map, catchError, of } from "rxjs";
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { catchError, map, of, switchMap } from "rxjs";
+import { AuthService } from "src/app/services/auth.service";
+import { User } from "../../types/user.types";
+import { loadUserFailureAction, loadUserRequestAction, loadUserSuccessAction } from "./user.actions";
 @Injectable()
 export class UserEffects {
-  constructor(private productService: ProductService, private actions$: Actions) {}
- 
+  constructor(private autheticationService: AuthService, private actions$: Actions) { }
+
+  loadUserRequestEffect$ = createEffect(() => this.actions$.pipe(
+    ofType(loadUserRequestAction),
+    switchMap(action => {
+      return this.autheticationService.getUserProfile().pipe(
+        map((user: User) => {
+          return loadUserSuccessAction({ user })
+        }),
+        catchError(error => {
+          return of(loadUserFailureAction({ error }))
+        })
+      )
+    })
+  ));
 }

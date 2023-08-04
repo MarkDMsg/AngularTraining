@@ -1,16 +1,15 @@
 import { createReducer, createSelector, on } from "@ngrx/store";
 import { Product } from "../../types/product.types";
-import { User } from "../../types/user.types";
 import * as ProductActionTypes from './product.actions';
 import { AppState } from "../app.reducers";
 
-export const productFeatureName='products';
+export const productFeatureName = 'products';
 
 export interface ProductState {
     products: Product[];
     error: string | null;
-    isLoading?: boolean; 
-    selectedProduct: Product|null,
+    isLoading?: boolean;
+    selectedProduct: Product | null,
 }
 
 export const initialProductState: ProductState = {
