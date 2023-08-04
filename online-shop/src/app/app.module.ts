@@ -22,9 +22,9 @@ import { JwtInterceptor } from './interceptors/auth.interceptor';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
-import { productFeatureName, productsReducer } from './modules/shared/state/app.reducers';
+import { productFeatureName, productsReducer } from './modules/shared/state/product/product.reducers';
 import { EffectsModule } from '@ngrx/effects';
-import { ProductEffects } from './modules/shared/state/app.effects';
+import { ProductEffects } from './modules/shared/state/product/product.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 @NgModule({
   declarations: [

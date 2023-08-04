@@ -8,8 +8,7 @@ import { Product } from 'src/app/modules/shared/types/product.types';
 import { } from '../../../../../../environments/environment';
 @Component({
   selector: 'app-shopping-cart-details',
-  templateUrl: './shopping-cart-details.component.html',
-  styleUrls: ['./shopping-cart-details.component.scss']
+  templateUrl: './shopping-cart-details.component.html'
 })
 export class ShoppingCartDetailsComponent {
   customerId: string = "de96921d-2f8d-46e7-8061-31468180de96";

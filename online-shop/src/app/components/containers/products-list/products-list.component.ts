@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable, of } from 'rxjs';
-import { loadProductRequestAction, loadProductsRequestAction} from 'src/app/modules/shared/state/app.actions';
-import { AppState, getProductError, getProducts } from 'src/app/modules/shared/state/app.reducers';
+import { Observable } from 'rxjs';
+import { AppState } from 'src/app/modules/shared/state/app.reducers';
+import { loadProductsRequestAction } from 'src/app/modules/shared/state/product/product.actions';
+import { getProducts } from 'src/app/modules/shared/state/product/product.reducers';
 import { Product } from 'src/app/modules/shared/types/product.types';
 import { User } from 'src/app/modules/shared/types/user.types';
 import { AuthService } from 'src/app/services/auth.service';
@@ -10,8 +11,7 @@ import { ProductService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-products-list',
-  templateUrl: './products-list.component.html',
-  styleUrls: ['./products-list.component.scss']
+  templateUrl: './products-list.component.html'
 })
 export class ProductsListComponent implements OnInit {
 
@@ -25,11 +25,8 @@ export class ProductsListComponent implements OnInit {
      private store$:Store<AppState>) { }
 
   ngOnInit(): void {
-
     this.loadProducts();
-    // this.getProducts();
     this.initializeUser();
-    
   }
 
   loadProducts():void{
@@ -50,10 +47,6 @@ export class ProductsListComponent implements OnInit {
       localStorage.setItem('admin', isAdmin);
     });
   }
-
-  // getProducts(): void {
-  //   this.service.getProducts().subscribe(products => this.products = products);
-  // }
 
   addProductToCart(productToAdd: Product): void {
     this.service.addProductToCart(productToAdd);
