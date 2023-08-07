@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Product } from 'src/app/modules/shared/types/products.types';
+import { Product } from 'src/app/modules/shared/types/product.types';
 import { ProductService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-products-edit',
-  templateUrl: './products-edit.component.html',
-  styleUrls: ['./products-edit.component.scss']
+  templateUrl: './products-edit.component.html'
 })
 export class ProductsEditComponent {
   product$ !: Observable<Product>;

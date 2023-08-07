@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductsDetailsComponent } from './components/containers/products-details/products-details.component';
@@ -17,6 +17,17 @@ import { ProductsEditComponent } from './components/containers/products-edit/pro
 import { ProductsEditViewComponent } from './components/presentational/products-edit-view/products-edit-view.component';
 import { ProductsAddViewComponent } from './components/presentational/products-add-view/products-add-view.component';
 import { ProductsAddComponent } from './components/containers/products-add/products-add.component';
+import { LoginViewComponent } from './components/presentational/login-view/login-view.component';
+import { JwtInterceptor } from './interceptors/auth.interceptor';
+import { ErrorInterceptor } from './interceptors/error.interceptor';
+import { CommonModule } from '@angular/common';
+import { StoreModule } from '@ngrx/store';
+import { productFeatureName, productsReducer } from './modules/shared/state/product/product.reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { ProductEffects } from './modules/shared/state/product/product.effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { UserEffects } from './modules/shared/state/user/user.effects';
+import { userFeatureName, userReducer } from './modules/shared/state/user/user.reducers';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +40,8 @@ import { ProductsAddComponent } from './components/containers/products-add/produ
     ProductsEditComponent,
     ProductsEditViewComponent,
     ProductsAddViewComponent,
-    ProductsAddComponent
+    ProductsAddComponent,
+    LoginViewComponent
   ],
   imports: [
     BrowserModule,
@@ -38,9 +50,17 @@ import { ProductsAddComponent } from './components/containers/products-add/produ
     IconButtonComponent,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule,
+    StoreModule.forRoot({[productFeatureName]:productsReducer,[userFeatureName]:userReducer}),
+    EffectsModule.forRoot([ProductEffects,UserEffects]),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+    })
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    ProductEffects],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

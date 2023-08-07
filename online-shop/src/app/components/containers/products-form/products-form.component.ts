@@ -1,13 +1,12 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Product } from 'src/app/modules/shared/types/products.types';
+import { Product } from 'src/app/modules/shared/types/product.types';
 import { ProductService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-products-form',
-  templateUrl: './products-form.component.html',
-  styleUrls: ['./products-form.component.scss']
+  templateUrl: './products-form.component.html'
 })
 export class ProductsFormComponent implements OnChanges{
 

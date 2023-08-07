@@ -6,12 +6,14 @@ import { ShoppingCartDetailsComponent } from './modules/shopping-cart/components
 import { ProductsFormComponent } from './components/containers/products-form/products-form.component';
 import { ProductsEditComponent } from './components/containers/products-edit//products-edit.component';
 import { ProductsAddComponent } from './components/containers/products-add/products-add.component';
-
+import { LoginViewComponent } from './components/presentational/login-view/login-view.component';
+import { authGuard } from './guards/auth.guard';
 const routes: Routes = [
-  { path: '', component:ProductsListComponent },
+  { path: '', component:LoginViewComponent },
+  { path: 'products', component:ProductsListComponent,canActivate: [authGuard] },
   { path: 'detail/:id', component: ProductsDetailsComponent },
   { path: 'add', component: ProductsAddComponent },
-  { path: 'shopping-cart', component: ShoppingCartDetailsComponent },
+  { path: 'shopping-cart', component: ShoppingCartDetailsComponent, canActivate: [authGuard] },
   { path: 'edit/:id', component: ProductsEditComponent }
 ];
 

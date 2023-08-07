@@ -4,7 +4,7 @@ import { environment } from '../../environments/environment';
 
 import { HttpClient } from '@angular/common/http';
 import { ShoppingCartService } from '../modules/services/shopping-cart.service';
-import { Product } from '../modules/shared/types/products.types';
+import { Product } from '../modules/shared/types/product.types';
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {

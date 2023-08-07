@@ -4,12 +4,11 @@ import { ShoppingCartService } from 'src/app/modules/services/shopping-cart.serv
 import { Order } from 'src/app/modules/shared/types/order.types';
 import { ProductFromOrder } from 'src/app/modules/shared/types/product-from-order.types';
 import { ProductWithQuantity } from 'src/app/modules/shared/types/product-with-quantity.type';
-import { Product } from 'src/app/modules/shared/types/products.types';
-import { } from '../../../../../../environments/environment';
+import { Product } from 'src/app/modules/shared/types/product.types';
+
 @Component({
   selector: 'app-shopping-cart-details',
-  templateUrl: './shopping-cart-details.component.html',
-  styleUrls: ['./shopping-cart-details.component.scss']
+  templateUrl: './shopping-cart-details.component.html'
 })
 export class ShoppingCartDetailsComponent {
   customerId: string = "de96921d-2f8d-46e7-8061-31468180de96";
